@@ -9,9 +9,19 @@ label {
   font-weight: bold;
 }
 
-@media (min-width: 1920px){
+@media (min-width: 1300px){
   .container {
-    width: 1920px;
+    width: 1300px;
     margin: 0 auto;
   }
+}
+
+.col-valor {
+  text-align: right;
+  width: 120px;;
+}
+
+.col-data {
+  text-align: center;
+  width: 120px;;
 }

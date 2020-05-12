@@ -1,6 +1,7 @@
+<!-- Pagina de pesquisa -->
 <div class="container">
+  <!-- Panel de pesquisa : INICIO -->
   <div class="ui-g">
-
     <div class="ui-g-12">
       <h1>Lançamentos</h1>
     </div>
@@ -14,13 +15,40 @@
       <label style="display: block">Vencimento</label>
       <input pInputText type="text" style="width: 95px">
 
-      <label>até</label>
+      <label> até </label>
       <input pInputText type="text" style="width: 95px">
     </div>
 
     <div class="ui-g-12">
       <button pButton type="submit" label="Pesquisar"></button>
     </div>
-
   </div>
+  <!-- Panel de pesquisa : FIM -->
+
+  <!-- Table de pesquisa : INICIO -->
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-table [value]="lancamentos">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Pessoa</th>
+                <th>Descrição</th>
+                <th class="col-data">Vencimento</th>
+                <th class="col-data">Pagamento</th>
+                <th class="col-valor">Valor</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lancamentos>
+            <tr>
+                <td>{{lancamentos.pessoa}}</td>
+                <td>{{lancamentos.descricao}}</td>
+                <td class="col-data">{{lancamentos.dataVencimento}}</td>
+                <td class="col-data">{{lancamentos.dataPagamento}}</td>
+                <td class="col-valor">{{lancamentos.valor}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+  </div>
+  <!-- Table de pesquisa : FIM -->
 </div>
