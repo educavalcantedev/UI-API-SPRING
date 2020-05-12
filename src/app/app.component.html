@@ -36,6 +36,7 @@
                 <th class="col-data">Vencimento</th>
                 <th class="col-data">Pagamento</th>
                 <th class="col-valor">Valor</th>
+                <th class="col-acoes">Ações</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-lancamentos>
@@ -44,11 +45,22 @@
                 <td>{{lancamentos.descricao}}</td>
                 <td class="col-data">{{lancamentos.dataVencimento}}</td>
                 <td class="col-data">{{lancamentos.dataPagamento}}</td>
-                <td class="col-valor">{{lancamentos.valor}}</td>
+                <td class="col-valor">
+                  <span [style.color]="lancamentos.tipo === 'DESPESA' ? 'red' : 'blue'">{{lancamentos.valor}}</span>
+                </td>
+                <td class="col-acoes">
+                  <a pButton icon="pi pi-pencil"></a>
+                  <button pButton icon="pi pi-trash" style="margin-left: 2px;"></button>
+                </td>
             </tr>
         </ng-template>
-    </p-table>
+      </p-table>
     </div>
+
+    <div class="ui-g-12">
+      <a pButton label="Novo lançamento"></a>
+    </div>
+
   </div>
   <!-- Table de pesquisa : FIM -->
 </div>
