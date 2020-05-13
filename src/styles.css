@@ -31,3 +31,13 @@ label {
   text-align: center;
   width: 96px;
 }
+
+/* Customização colunas da tabela de pessoas */
+.col-ativo {
+  text-align: center;
+  width: 96px;
+}
+
+.col-nome {
+  text-align: center;
+}

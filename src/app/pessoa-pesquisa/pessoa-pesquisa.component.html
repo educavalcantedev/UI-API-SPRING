@@ -3,20 +3,12 @@
   <!-- Panel de pesquisa : INICIO -->
   <div class="ui-g">
     <div class="ui-g-12">
-      <h1>Lançamentos</h1>
+      <h1>Pessoas</h1>
     </div>
 
     <div class="ui-g-12 ui-fluid">
-      <label>Descrição</label>
+      <label>Nome</label>
       <input pInputText type="text">
-    </div>
-
-    <div class="ui-g-12">
-      <label style="display: block">Vencimento</label>
-      <input pInputText type="text" style="width: 95px">
-
-      <label> até </label>
-      <input pInputText type="text" style="width: 95px">
     </div>
 
     <div class="ui-g-12">
@@ -29,25 +21,22 @@
   <!-- Table de pesquisa : INICIO -->
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-table [value]="lancamentos" [paginator]="true" [rows]="10" [responsive]="true">
+      <p-table [value]="pessoas" [paginator]="true" [rows]="10" [responsive]="true">
         <ng-template pTemplate="header">
             <tr>
-                <th>Pessoa</th>
-                <th>Descrição</th>
-                <th class="col-data">Vencimento</th>
-                <th class="col-data">Pagamento</th>
-                <th class="col-valor">Valor</th>
+                <th class="col-nome">Nome</th>
+                <th class="col-ativo">Status</th>
                 <th class="col-acoes">Ações</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-lancamentos>
+        <ng-template pTemplate="body" let-pessoas>
             <tr>
-                <td>{{lancamentos.pessoa}}</td>
-                <td>{{lancamentos.descricao}}</td>
-                <td class="col-data">{{lancamentos.dataVencimento | date:'dd/MM/y'}}</td>
-                <td class="col-data">{{lancamentos.dataPagamento}}</td>
-                <td class="col-valor">
-                  <span [style.color]="lancamentos.tipo === 'DESPESA' ? 'red' : 'green'">{{lancamentos.valor | number:'1.2-2' }}</span>
+                <td class="col-nome">{{pessoas.nome}}</td>
+                <td class="col-ativo">
+                  <a href="#" [pTooltip]="pessoas.ativo ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+                    [style.color]="pessoas.ativo ? 'green' : 'red'">
+                    {{ pessoas.ativo ? 'Ativo' : 'Inativo' }}
+                  </a>
                 </td>
                 <td class="col-acoes">
                   <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>

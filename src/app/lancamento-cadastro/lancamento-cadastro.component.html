@@ -1,0 +1,59 @@
+<div class="container">
+  <form>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Cadastro Lançamento</h1>
+      </div>
+
+      <div class="ui-sm-12 ui-md-3 ui-lg-3 ui-fluid">
+        <label>Tipo de lançamento</label>
+        <p-dropdown [options]="tipos" #tipo placeholder="Selecione"></p-dropdown>
+      </div>
+
+      <div class="ui-sm-12 ui-md-9 ui-lg-9 ui-fluid">
+        <label>Descrição</label>
+        <input pInputText type="text">
+      </div>
+
+      <div class="ui-sm-6 ui-md-4 ui-lg-2 ui-fluid">
+        <label>Vencimento</label>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true"
+          [showIcon]="true"></p-calendar>
+      </div>
+
+      <div class="ui-sm-6 ui-md-4 ui-lg-2 ui-fluid">
+        <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true"
+          [showIcon]="true"></p-calendar>
+      </div>
+
+      <div class="ui-sm-12 ui-md-4 ui-lg-2 ui-fluid">
+        <label>Valor</label>
+        <input pInputText type="text" placeholder="0,00" currencyMask
+          [options]="{ prefix: '',  thousands: '.', decimal: ',', allowNegative: false }">
+      </div>
+
+      <div class="ui-sm-12 ui-md-6 ui-lg-3 ui-fluid">
+        <label>Categoria</label>
+        <p-dropdown [options]="categorias" placeholder="Selecione" [filter]="true"></p-dropdown>
+      </div>
+
+      <div class="ui-sm-12 ui-md-6 ui-lg-3 ui-fluid">
+        <label>Pessoa</label>
+        <p-dropdown [options]="pessoas" placeholder="Selecione" [filter]="true"></p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Observação</label>
+        <textarea pInputTextarea></textarea>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" class="action-buttons" label="Salvar"></button>
+        <button pButton type="button" class="action-buttons button-novo" label="Novo"></button>
+        <a href="#">Voltar para a pesquisa</a>
+      </div>
+
+    </div>
+  </form>
+</div>
